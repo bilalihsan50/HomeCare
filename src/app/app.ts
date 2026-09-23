@@ -51,7 +51,7 @@ export class App {
   }
 
   private initializeGA4(): void {
-    const GA_ID = 'G-XXXXXXXXXX'; // Replace with your actual GA4 Measurement ID
+    const GA_ID = 'G-06L9RT2Y1D'; // GA4 Measurement ID for tabeebhomecare.com
     
     // Add GA4 script
     const script1 = this.document.createElement('script');

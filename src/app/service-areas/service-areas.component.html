@@ -1,78 +1,316 @@
 <div class="areas-container">
+  <!-- Header Section -->
   <section class="areas-header">
-    <h1>Service Areas in Lahore</h1>
-    <p>Tabeeb operates across all of Lahore with varying response times</p>
+    <h1>Home Nursing Care Services Across All Lahore Areas</h1>
+    <p class="subtitle">Professional 24/7 healthcare in 20+ zones with 2-3 hour response in premium areas</p>
+    <p class="lead-text">
+      Tabeeb Home Healthcare provides comprehensive nursing services, doctor consultations, physiotherapy, 
+      and emergency medical care across all Lahore zones. Whether you're in premium areas like DHA, Defence, 
+      or Gulberg, or secondary zones like Samanabad, Township, or Raiwind - we serve you with professional 
+      healthcare at your doorstep.
+    </p>
   </section>
 
-  <!-- Premium Zones -->
+  <!-- Quick Stats -->
+  <section class="stats-section">
+    <div class="stat">
+      <h3>20+</h3>
+      <p>Service Areas</p>
+    </div>
+    <div class="stat">
+      <h3>2-3 Hrs</h3>
+      <p>Premium Response</p>
+    </div>
+    <div class="stat">
+      <h3>90+</h3>
+      <p>Healthcare Staff</p>
+    </div>
+    <div class="stat">
+      <h3>24/7</h3>
+      <p>Always Available</p>
+    </div>
+  </section>
+
+  <!-- Premium Zones - Detailed Section -->
   <section class="zones-section premium-section">
     <div class="section-header">
-      <h2>⚡ Premium Zones (2-3 Hour Response)</h2>
-      <p>High-priority service areas with fastest response</p>
+      <h2>⚡ Premium Service Areas - 2-3 Hour Response</h2>
+      <p>Our fastest coverage zones with experienced nursing teams ready for immediate deployment</p>
     </div>
 
-    <div class="zones-grid">
-      <div class="zone-card premium-card" *ngFor="let zone of premiumZones">
-        <h3>{{ zone.name }}</h3>
-        <p class="response-time">{{ zone.responseTime }}</p>
-        <p class="description">{{ zone.description }}</p>
+    <div class="zones-detailed-grid">
+      <div class="zone-card-detailed premium-card" *ngFor="let zone of premiumZones(); let i = index">
+        <div class="zone-header" (click)="toggleZoneDetails(zone.id)">
+          <div class="zone-title-block">
+            <h3>{{ zone.name }}</h3>
+            <p class="response-time">⏱️ {{ zone.responseTime }}</p>
+          </div>
+          <button class="expand-btn" [class.expanded]="expandedZone() === zone.id">
+            ▼
+          </button>
+        </div>
+
+        <p class="short-description">{{ zone.description }}</p>
+
         <div class="neighborhoods" *ngIf="zone.neighborhoods">
-          <strong>Areas:</strong>
+          <strong>📍 Areas Covered:</strong>
           <ul>
             <li *ngFor="let neighborhood of zone.neighborhoods">{{ neighborhood }}</li>
           </ul>
+        </div>
+
+        <!-- Expanded Detailed Content -->
+        <div class="expanded-content" *ngIf="expandedZone() === zone.id">
+          <div class="detailed-description">
+            <h4>About {{ zone.name }}</h4>
+            <p>{{ zone.detailedDescription }}</p>
+          </div>
+
+          <div class="services-in-zone">
+            <h4>Services Available in {{ zone.name }}:</h4>
+            <ul>
+              <li>✓ Professional Home Nursing (24/7)</li>
+              <li>✓ Doctor Home Consultations</li>
+              <li>✓ ICU & Post-Operative Care</li>
+              <li>✓ Physiotherapy & Rehabilitation</li>
+              <li>✓ Home Laboratory Tests</li>
+              <li>✓ Elderly & Chronic Care Management</li>
+              <li>✓ Emergency Medical Support</li>
+              <li>✓ Home Pharmacy Services</li>
+            </ul>
+          </div>
+
+          <div class="cta-zone">
+            <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp-small">
+              📱 Book Service in {{ zone.name }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Secondary Zones -->
+  <!-- Secondary Zones - Detailed Section -->
   <section class="zones-section secondary-section">
     <div class="section-header">
-      <h2>🕐 Secondary Zones (12-14 Hour Response)</h2>
-      <p>Wider coverage across all Lahore areas</p>
+      <h2>🕐 Secondary Service Areas - 12-14 Hour Response</h2>
+      <p>Extended coverage across all Lahore with reliable healthcare delivery</p>
     </div>
 
-    <div class="zones-grid">
-      <div class="zone-card secondary-card" *ngFor="let zone of secondaryZones">
-        <h3>{{ zone.name }}</h3>
-        <p class="response-time">{{ zone.responseTime }}</p>
-        <p class="description">{{ zone.description }}</p>
+    <div class="zones-detailed-grid">
+      <div class="zone-card-detailed secondary-card" *ngFor="let zone of secondaryZones(); let i = index">
+        <div class="zone-header" (click)="toggleZoneDetails(zone.id)">
+          <div class="zone-title-block">
+            <h3>{{ zone.name }}</h3>
+            <p class="response-time">⏱️ {{ zone.responseTime }}</p>
+          </div>
+          <button class="expand-btn" [class.expanded]="expandedZone() === zone.id">
+            ▼
+          </button>
+        </div>
+
+        <p class="short-description">{{ zone.description }}</p>
+
         <div class="neighborhoods" *ngIf="zone.neighborhoods">
-          <strong>Areas:</strong>
+          <strong>📍 Areas Covered:</strong>
           <ul>
             <li *ngFor="let neighborhood of zone.neighborhoods">{{ neighborhood }}</li>
           </ul>
+        </div>
+
+        <!-- Expanded Detailed Content -->
+        <div class="expanded-content" *ngIf="expandedZone() === zone.id">
+          <div class="detailed-description">
+            <h4>About {{ zone.name }}</h4>
+            <p>{{ zone.detailedDescription }}</p>
+          </div>
+
+          <div class="services-in-zone">
+            <h4>Services Available in {{ zone.name }}:</h4>
+            <ul>
+              <li>✓ Professional Home Nursing (24/7)</li>
+              <li>✓ Doctor Home Consultations</li>
+              <li>✓ ICU & Post-Operative Care</li>
+              <li>✓ Physiotherapy & Rehabilitation</li>
+              <li>✓ Home Laboratory Tests</li>
+              <li>✓ Elderly & Chronic Care Management</li>
+              <li>✓ Emergency Medical Support</li>
+              <li>✓ Home Pharmacy Services</li>
+            </ul>
+          </div>
+
+          <div class="cta-zone">
+            <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp-small">
+              📱 Book Service in {{ zone.name }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Info Section -->
-  <section class="info-section">
-    <h2>Coverage Details</h2>
-    <div class="info-grid">
-      <div class="info-box">
-        <h4>🏘️ All Lahore Covered</h4>
-        <p>We serve all areas across Lahore with professional home healthcare</p>
+  <!-- Why Choose Tabeeb for Your Area -->
+  <section class="why-choose-section">
+    <h2>Why Choose Tabeeb Home Healthcare in Your Area?</h2>
+    
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="icon">🏥</div>
+        <h4>Hospital-Quality Care at Home</h4>
+        <p>Professional nurses and doctors trained in hospital standards bring clinical expertise to your home.</p>
       </div>
-      <div class="info-box">
-        <h4>⏱️ Fast Response</h4>
-        <p>Maximum 2-3 hours in premium zones, 12-14 hours elsewhere</p>
+      <div class="reason-card">
+        <div class="icon">⚡</div>
+        <h4>Fast Response Times</h4>
+        <p>2-3 hours in premium zones ensures urgent cases get immediate attention and care.</p>
       </div>
-      <div class="info-box">
-        <h4>🚑 Emergency Support</h4>
-        <p>Urgent cases prioritized. Call for emergency response.</p>
+      <div class="reason-card">
+        <div class="icon">💰</div>
+        <h4>20% Cheaper Than Market</h4>
+        <p>Quality healthcare doesn't mean expensive. We provide affordable services without compromising quality.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">👨‍⚕️</div>
+        <h4>Experienced Healthcare Team</h4>
+        <p>90+ trained nurses, doctors, physiotherapists, and lab technicians ready to serve you.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">📞</div>
+        <h4>24/7 Availability</h4>
+        <p>No waiting hours, no clinic queues. Healthcare whenever you need it, day or night.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🎯</div>
+        <h4>Area-Specific Services</h4>
+        <p>We understand each area's unique healthcare needs and provide customized services.</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>Book Your Service Today</h2>
-    <p>Check your area and get immediate healthcare support</p>
-    <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp">
-      📱 WhatsApp +92 3248883803
-    </a>
+  <!-- Service Types Available Everywhere -->
+  <section class="all-services-section">
+    <h2>All Services Available in Every Service Area</h2>
+    <p class="subtitle">Whether you're in Defence, Gulberg, or any Lahore area, you get the same high-quality services:</p>
+    
+    <div class="services-list">
+      <div class="service-item">
+        <h4>👩‍⚕️ Professional Nursing Care</h4>
+        <p>RN/LHV nurses for ICU, post-operative, elderly, and chronic care management</p>
+      </div>
+      <div class="service-item">
+        <h4>🏥 Doctor Home Consultations</h4>
+        <p>Licensed doctors for medical advice, prescriptions, and emergency consultations</p>
+      </div>
+      <div class="service-item">
+        <h4>🔬 Home Laboratory Tests</h4>
+        <p>Blood tests, samples collection, and quick results from your home</p>
+      </div>
+      <div class="service-item">
+        <h4>🏃 Physiotherapy & Rehabilitation</h4>
+        <p>Licensed DPTs for recovery exercises, mobility training, and rehabilitation</p>
+      </div>
+      <div class="service-item">
+        <h4>👴 Elderly Care</h4>
+        <p>Specialized care for seniors including mobility assistance and medication management</p>
+      </div>
+      <div class="service-item">
+        <h4>🚨 Emergency Support</h4>
+        <p>24/7 emergency response and urgent medical care when you need it most</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Details -->
+  <section class="coverage-details-section">
+    <h2>Coverage & Response Details</h2>
+    <div class="details-content">
+      <div class="detail-box">
+        <h4>📍 Service Area Coverage</h4>
+        <p>
+          Tabeeb operates across <strong>20+ major areas</strong> of Lahore including all premium 
+          residential zones (Defence, DHA, Gulberg, Model Town, Cantt, Bahria Town, Johar Town, Faisal Town, 
+          Garden Town, Askari, WAPDA, Sui Gas) and secondary zones (Allama Iqbal Town, Township, Samanabad, 
+          and all outskirts).
+        </p>
+      </div>
+      <div class="detail-box">
+        <h4>⏱️ Response Time Guarantee</h4>
+        <p>
+          <strong>Premium Zones (2-3 hours):</strong> Defence, DHA, Gulberg, Model Town, Cantt, Bahria Town, 
+          Johar Town, and other premium residential areas<br/>
+          <strong>Secondary Zones (12-14 hours):</strong> All other areas including outskirts and developing 
+          neighborhoods
+        </p>
+      </div>
+      <div class="detail-box">
+        <h4>🏥 Hospital-Quality Standards</h4>
+        <p>
+          All our healthcare professionals are trained in hospital protocols and standards. We maintain 
+          medical-grade hygiene, use sterile equipment, and follow clinical guidelines in every patient's home.
+        </p>
+      </div>
+      <div class="detail-box">
+        <h4>💼 Professional & Trained Staff</h4>
+        <p>
+          Our 90+ member team includes qualified nurses (RN/LHV), licensed doctors, experienced physiotherapists 
+          (DPTs), lab technicians, and trained healthcare assistants.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main CTA Section -->
+  <section class="main-cta-section">
+    <h2>Get Professional Home Healthcare Today</h2>
+    <p>No matter which area of Lahore you live in, Tabeeb is ready to provide you with compassionate, 
+       professional healthcare at your doorstep.</p>
+    
+    <div class="cta-buttons">
+      <a href="https://wa.me/923248883803?text=Hello%20Tabeeb!%20I%20need%20home%20nursing%20services" 
+         target="_blank" class="btn-whatsapp-large">
+        📱 WhatsApp Us - +92 324-888-3803
+      </a>
+      <a href="tel:+923248883803" class="btn-call">
+        📞 Call Now
+      </a>
+    </div>
+
+    <p class="cta-footer">Available 24/7 • Response: 2-3 hours in premium zones • 20% Cheaper than market rate</p>
+  </section>
+
+  <!-- FAQ Section for Service Areas -->
+  <section class="faq-service-areas">
+    <h2>Common Questions About Our Service Areas</h2>
+    
+    <div class="faq-item">
+      <h4>Q: Which areas do you cover in Lahore?</h4>
+      <p>A: We cover all major areas of Lahore including Defence, DHA, Gulberg, Model Town, Cantt, Bahria Town, 
+         Johar Town, Faisal Town, Garden Town, Askari, WAPDA, and 10+ secondary zones. Even if you're in an area 
+         not listed, call us - we may still serve you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Q: What's the difference between premium and secondary zones?</h4>
+      <p>A: Premium zones (2-3 hour response) are our high-priority areas with concentrated staff. Secondary zones 
+         (12-14 hour response) cover the rest of Lahore. Response time varies based on geography and current demand.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Q: Do you provide the same services in all areas?</h4>
+      <p>A: Yes! Whether in Defence or Raiwind, you get the same quality nursing, doctor consultations, physiotherapy, 
+         and emergency support. The difference is response time.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Q: How much do services cost?</h4>
+      <p>A: Our rates are 20% cheaper than market average. Pricing varies by service type (nursing shifts, doctor visit, 
+         lab test, etc.). Contact us via WhatsApp for detailed quotes for your area.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Q: What if my area isn't listed?</h4>
+      <p>A: Contact us anyway! We continuously expand coverage. Even unlisted areas may be served, or we can arrange 
+         special arrangements based on distance and requirements.</p>
+    </div>
   </section>
 </div>
