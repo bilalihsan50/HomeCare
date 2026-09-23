@@ -1,0 +1,78 @@
+<div class="areas-container">
+  <section class="areas-header">
+    <h1>Service Areas in Lahore</h1>
+    <p>Tabeeb operates across all of Lahore with varying response times</p>
+  </section>
+
+  <!-- Premium Zones -->
+  <section class="zones-section premium-section">
+    <div class="section-header">
+      <h2>⚡ Premium Zones (2-3 Hour Response)</h2>
+      <p>High-priority service areas with fastest response</p>
+    </div>
+
+    <div class="zones-grid">
+      <div class="zone-card premium-card" *ngFor="let zone of premiumZones">
+        <h3>{{ zone.name }}</h3>
+        <p class="response-time">{{ zone.responseTime }}</p>
+        <p class="description">{{ zone.description }}</p>
+        <div class="neighborhoods" *ngIf="zone.neighborhoods">
+          <strong>Areas:</strong>
+          <ul>
+            <li *ngFor="let neighborhood of zone.neighborhoods">{{ neighborhood }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary Zones -->
+  <section class="zones-section secondary-section">
+    <div class="section-header">
+      <h2>🕐 Secondary Zones (12-14 Hour Response)</h2>
+      <p>Wider coverage across all Lahore areas</p>
+    </div>
+
+    <div class="zones-grid">
+      <div class="zone-card secondary-card" *ngFor="let zone of secondaryZones">
+        <h3>{{ zone.name }}</h3>
+        <p class="response-time">{{ zone.responseTime }}</p>
+        <p class="description">{{ zone.description }}</p>
+        <div class="neighborhoods" *ngIf="zone.neighborhoods">
+          <strong>Areas:</strong>
+          <ul>
+            <li *ngFor="let neighborhood of zone.neighborhoods">{{ neighborhood }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <h2>Coverage Details</h2>
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>🏘️ All Lahore Covered</h4>
+        <p>We serve all areas across Lahore with professional home healthcare</p>
+      </div>
+      <div class="info-box">
+        <h4>⏱️ Fast Response</h4>
+        <p>Maximum 2-3 hours in premium zones, 12-14 hours elsewhere</p>
+      </div>
+      <div class="info-box">
+        <h4>🚑 Emergency Support</h4>
+        <p>Urgent cases prioritized. Call for emergency response.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Book Your Service Today</h2>
+    <p>Check your area and get immediate healthcare support</p>
+    <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp">
+      📱 WhatsApp +92 3248883803
+    </a>
+  </section>
+</div>

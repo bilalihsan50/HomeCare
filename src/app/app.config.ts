@@ -8,6 +8,7 @@ import {
   withInMemoryScrolling
 } from '@angular/router';
 
+import { Meta, Title } from '@angular/platform-browser';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -20,6 +21,9 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled'
       })
-    )
+    ),
+    
+    Meta,
+    Title
   ]
 };

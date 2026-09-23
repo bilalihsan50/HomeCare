@@ -1,0 +1,47 @@
+<div class="testimonials-container">
+  <section class="testimonials-header">
+    <h1>What Our Patients Say</h1>
+    <p>Real stories from families who trusted Tabeeb with their healthcare</p>
+  </section>
+
+  <section class="testimonials-grid">
+    <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+      <div class="stars">
+        <span *ngFor="let i of getRatingArray(testimonial.rating)" class="star">★</span>
+      </div>
+      
+      <p class="testimonial-text">{{ testimonial.testimonialText }}</p>
+      
+      <div class="testimonial-author">
+        <h3>{{ testimonial.name }}</h3>
+        <p class="area">{{ testimonial.area }}</p>
+        <p class="service" *ngIf="testimonial.serviceUsed">
+          Service: <strong>{{ testimonial.serviceUsed }}</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-stats">
+    <div class="stat">
+      <h3>{{ testimonials.length }}+</h3>
+      <p>Patient Testimonials</p>
+    </div>
+    <div class="stat">
+      <h3>5 ⭐</h3>
+      <p>Average Rating</p>
+    </div>
+    <div class="stat">
+      <h3>100%</h3>
+      <p>Satisfaction Rate</p>
+    </div>
+  </section>
+
+  <section class="join-us">
+    <h2>Join Our Growing Family</h2>
+    <p>Experience professional home healthcare in Lahore</p>
+    <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp">
+      📱 Book Your Service Now
+    </a>
+  </section>
+</div>

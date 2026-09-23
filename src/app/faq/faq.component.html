@@ -1,0 +1,36 @@
+<div class="faq-container">
+  <section class="faq-header">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to common questions about Tabeeb home healthcare services</p>
+  </section>
+
+  <section class="faq-content">
+    <div class="faq-section" *ngFor="let category of categories">
+      <h2 class="category-title">{{ category }}</h2>
+      
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let faq of faqsByCategory[category]">
+          <button 
+            class="accordion-header"
+            (click)="toggleFaq(faq.id)"
+            [class.active]="expandedFaq() === faq.id">
+            <span class="question">{{ faq.question }}</span>
+            <span class="toggle-icon">{{ expandedFaq() === faq.id ? '−' : '+' }}</span>
+          </button>
+          
+          <div class="accordion-body" *ngIf="expandedFaq() === faq.id">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-cta">
+    <h2>Still Have Questions?</h2>
+    <p>Contact us on WhatsApp for immediate assistance</p>
+    <a href="https://wa.me/923248883803" target="_blank" class="btn-whatsapp">
+      📱 Message on WhatsApp
+    </a>
+  </section>
+</div>
