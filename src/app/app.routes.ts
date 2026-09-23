@@ -7,6 +7,7 @@ import { ServiceDetailComponent } from './service-detail/service-detail.componen
 import { FAQComponent } from './faq/faq.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ServiceAreasComponent } from './service-areas/service-areas.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
   { path: '', component: ServicesComponent, data: { title: 'Home' } },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'faq', component: FAQComponent },
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'service-areas', component: ServiceAreasComponent },
+  { path: 'privacy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '/' },
 ];

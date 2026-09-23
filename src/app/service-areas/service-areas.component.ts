@@ -18,13 +18,11 @@ export class ServiceAreasComponent implements OnInit {
   private metaService = inject(MetaService);
 
   ngOnInit(): void {
-    this.metaService.setPageMeta(
-      'Service Areas | Tabeeb Home Healthcare Lahore',
-      'Tabeeb home healthcare service areas in Lahore. Premium zones (2-3 hrs) and secondary areas (12-14 hrs).',
-      ['service areas', 'Lahore coverage', 'home healthcare coverage']
-    );
-
     this.premiumZones = this.contentService.getPremiumZones();
     this.secondaryZones = this.contentService.getSecondaryZones();
+
+    // Set enhanced meta tags
+    this.metaService.setServiceAreasPageMeta();
+    this.metaService.setCanonical('https://www.tabeebhomecare.com/service-areas');
   }
 }

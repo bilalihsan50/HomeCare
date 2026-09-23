@@ -56,27 +56,6 @@
 
       <!-- Right: Sidebar -->
       <aside class="detail-sidebar">
-        <!-- Pricing Card -->
-        <div class="pricing-card">
-          <h3>{{ service.pricing.currency }} Pricing</h3>
-          <div class="pricing-option">
-            <span class="duration">8 Hours</span>
-            <span class="price">PKR {{ service.pricing.shift8hrs | number }}</span>
-          </div>
-          <div class="pricing-option">
-            <span class="duration">12 Hours</span>
-            <span class="price">PKR {{ service.pricing.shift12hrs | number }}</span>
-          </div>
-          <div class="pricing-option">
-            <span class="duration">24 Hours</span>
-            <span class="price">PKR {{ service.pricing.shift24hrs | number }}</span>
-          </div>
-          <p class="pricing-note">{{ service.pricing.note }}</p>
-          <a [href]="getWhatsAppLink()" target="_blank" class="btn-whatsapp">
-            📱 Book on WhatsApp
-          </a>
-        </div>
-
         <!-- Quick Info -->
         <div class="info-card">
           <h4>Quick Info</h4>

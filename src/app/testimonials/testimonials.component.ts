@@ -18,13 +18,12 @@ export class TestimonialsComponent implements OnInit {
   private metaService = inject(MetaService);
 
   ngOnInit(): void {
-    this.metaService.setPageMeta(
-      'Patient Testimonials | Tabeeb Home Healthcare',
-      'Read real patient testimonials about Tabeeb home healthcare services in Lahore.',
-      ['testimonials', 'patient reviews', 'home healthcare reviews']
-    );
-
     this.testimonials = this.contentService.getAllTestimonials();
+
+    // Set enhanced meta tags
+    this.metaService.setTestimonialsPageMeta();
+    this.metaService.setCanonical('https://www.tabeebhomecare.com/testimonials');
+    this.metaService.setAggregateRatingSchema(4.8, this.testimonials.length);
   }
 
   getRatingArray(rating: number): number[] {

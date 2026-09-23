@@ -19,16 +19,22 @@ export class FAQComponent implements OnInit {
   private metaService = inject(MetaService);
 
   ngOnInit(): void {
-    this.metaService.setPageMeta(
-      'FAQs | Tabeeb Home Healthcare Lahore',
-      'Frequently asked questions about Tabeeb home healthcare services in Lahore. Learn about booking, pricing, and medical care.',
-      ['faq', 'home healthcare Lahore', 'tabeeb services']
-    );
-
     this.categories = this.contentService.getFAQCategories();
     this.categories.forEach(category => {
       this.faqsByCategory[category] = this.contentService.getFAQsByCategory(category);
     });
+
+    // Set meta tags with enhanced SEO
+    this.metaService.setFAQPageMeta();
+    this.metaService.setCanonical('https://www.tabeebhomecare.com/faq');
+
+    // Set FAQ structured data
+    const allFaqs = Object.values(this.faqsByCategory).flat().slice(0, 10);
+    const faqSchema = allFaqs.map(faq => ({
+      question: faq.question,
+      answer: faq.answer
+    }));
+    this.metaService.setFAQSchema(faqSchema);
   }
 
   toggleFaq(id: string): void {
