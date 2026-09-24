@@ -5,13 +5,13 @@
     </div>
 
     <div class="nav-menu" [class.active]="isMenuOpen">
-      <a href="/" class="nav-link">Home</a>
-      <a routerLink="/services" class="nav-link">Services</a>
-      <a routerLink="/why-us" class="nav-link">Why Us</a>
-      <a routerLink="/contact" class="nav-link">Contact</a>
-      <a routerLink="/blog" class="nav-link">Blog</a>
+      <a href="/" class="nav-link" (click)="closeMenu()">Home</a>
+      <a routerLink="/services" class="nav-link" (click)="closeMenu()">Services</a>
+      <a routerLink="/why-us" class="nav-link" (click)="closeMenu()">Why Us</a>
+      <a routerLink="/contact" class="nav-link" (click)="closeMenu()">Contact</a>
+      <a routerLink="/blog" class="nav-link" (click)="closeMenu()">Blog</a>
       <button [routerLink]="['/contact']" fragment="contact-form" class="btn btn-primary nav-cta"
-        style="background: #0ba696">
+        style="background: #0ba696" (click)="closeMenu()">
         Book Now
       </button>      
     </div>
