@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../footer/footer';
+import { MetaService } from '../core/services/meta.service';
 
 interface BlogPost {
   id: number;
@@ -20,7 +21,21 @@ interface BlogPost {
   templateUrl: './blog.html',
   styleUrl: './blog.css',
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
+  private metaService = inject(MetaService);
+
+  ngOnInit(): void {
+    this.metaService.setPageMeta(
+      'Healthcare Blog | Nursing Tips & Wellness Articles | Tabeeb',
+      'Read expert articles on home nursing, healthcare tips, senior care, and wellness. Get professional advice from Tabeeb Home Healthcare specialists in Lahore.',
+      ['healthcare blog', 'nursing tips', 'health articles', 'wellness', 'home care', 'senior care']
+    );
+    this.metaService.setCanonical('https://www.tabeebhomecare.com/blog');
+    this.metaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://www.tabeebhomecare.com' },
+      { name: 'Blog', url: 'https://www.tabeebhomecare.com/blog' }
+    ]);
+  }
   blogPosts: BlogPost[] = [
     {
       id: 1,

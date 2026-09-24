@@ -1,0 +1,29 @@
+# Robots.txt for Tabeeb Home Healthcare
+# https://www.tabeebhomecare.com
+
+# Allow all bots
+User-agent: *
+Allow: /
+
+# Disallow sensitive paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /.git
+Disallow: /node_modules/
+
+# Specific rules for Googlebot (can be more permissive)
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay (optional - in seconds)
+# Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.tabeebhomecare.com/sitemap.xml

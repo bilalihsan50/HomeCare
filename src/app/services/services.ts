@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../footer/footer';
 import { RouterLink } from '@angular/router';
+import { MetaService } from '../core/services/meta.service';
 
 interface Service {
   id: number;
@@ -18,7 +19,17 @@ interface Service {
   templateUrl: './services.html',
   styleUrl: './services.css',
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
+  private metaService = inject(MetaService);
+
+  ngOnInit(): void {
+    this.metaService.setPageMeta(
+      'Our Services | Professional Home Healthcare | Tabeeb',
+      'Professional healthcare services in Lahore: doctor at home, ICU care, nursing, lab tests, injections, physiotherapy, and mother & baby care. Available 24/7.',
+      ['home healthcare services', 'doctor at home', 'ICU care', 'nursing lahore', 'physiotherapy', 'lab tests', 'medical services', 'home care']
+    );
+    this.metaService.setCanonical('https://www.tabeebhomecare.com/services');
+  }
   services: Service[] = [
     {
       id: 1,
