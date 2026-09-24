@@ -123,11 +123,11 @@ export class ContentService {
 
   // STATIC DATA
   getWhatsAppNumber(): string {
-    return '+92 3248883803';
+    return '+92 324-888-3803';
   }
 
   getPhoneNumber(): string {
-    return '+92 3248883803';
+    return '+92 324-888-3803';
   }
 
   getAboutText(): string {

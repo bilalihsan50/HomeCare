@@ -60,6 +60,6 @@ export class ServiceDetailComponent implements OnInit {
   getWhatsAppLink(): string {
     const text = `I'm interested in ${this.service?.title}. Can you provide more info?`;
     const encoded = encodeURIComponent(text);
-    return `https://wa.me/923248883803?text=${encoded}`;
+    return `https://wa.me/923238883803?text=${encoded}`;
   }
 }

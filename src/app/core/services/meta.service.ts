@@ -59,7 +59,7 @@ export class MetaService {
     this.metaService.updateTag({ name: 'twitter:creator', content: '@tabeebhomecare' });
 
     // WhatsApp Meta
-    this.metaService.updateTag({ property: 'og:phone_number', content: '+92 3248883803' });
+    this.metaService.updateTag({ property: 'og:phone_number', content: '+92 324-888-3803' });
   }
 
   setCanonical(url: string): void {
@@ -78,8 +78,8 @@ export class MetaService {
       '@type': 'Organization',
       'name': 'Tabeeb Home Healthcare',
       'url': 'https://www.tabeebhomecare.com',
-      'telephone': '+92-3248883803',
-      'email': 'contact@tabeebhomecare.com',
+      'telephone': '+92 324-888-3803',
+      'email': 'connect@tabeebhomecare.com',
       'foundingDate': '2023',
       'areaServed': {
         '@type': 'City',
@@ -89,13 +89,13 @@ export class MetaService {
       'contactPoint': {
         '@type': 'ContactPoint',
         'contactType': 'Customer Service',
-        'telephone': '+92-3248883803',
+        'telephone': '+92 324-888-3803',
         'availableLanguage': ['en', 'ur']
       },
       'sameAs': [
         'https://www.facebook.com/tabeebhomecare',
         'https://www.instagram.com/tabeebhomecare',
-        'https://wa.me/923248883803'
+        'https://wa.me/923238883803'
       ]
     };
     this.addJsonLd(schema);
@@ -118,7 +118,7 @@ export class MetaService {
       'sameAs': [
         'https://www.facebook.com/tabeebhomecare',
         'https://www.instagram.com/tabeebhomecare',
-        'https://wa.me/923248883803'
+        'https://wa.me/923238883803'
       ],
       'priceRange': 'PKR 1500-10000'
     };
@@ -144,7 +144,7 @@ export class MetaService {
       'provider': {
         '@type': 'LocalBusiness',
         'name': 'Tabeeb Home Healthcare',
-        'telephone': '+92 3248883803',
+        'telephone': '+92 324-888-3803',
         'url': 'https://www.tabeebhomecare.com'
       },
       'areaServed': {
@@ -205,7 +205,7 @@ export class MetaService {
   setHomePageMeta(): void {
     this.setPageMeta(
       'Professional Home Nursing Care in Lahore | 20% Cheaper | Tabeeb',
-      'Best home healthcare services in Lahore. Professional nurses, doctors, ICU care, physiotherapy available 24/7. Response in 12-14 hours. 20% cheaper than market. Book WhatsApp +92 3248883803',
+      'Best home healthcare services in Lahore. Professional nurses, doctors, ICU care, physiotherapy available 24/7. Response in 12-14 hours. 20% cheaper than market. Book WhatsApp +92 324-888-3803',
       [
         'home nursing lahore',
         'home healthcare lahore',
@@ -223,7 +223,7 @@ export class MetaService {
     this.setOrganizationSchema();
     this.setLocalBusinessSchema(
       'Tabeeb Home Healthcare',
-      '+92 3248883803',
+      '+92 324-888-3803',
       'Lahore, Pakistan',
       '24/7'
     );
